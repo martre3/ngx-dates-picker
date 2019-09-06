@@ -1,8 +1,20 @@
-<div class="ngx-datepicker-container">
-  <input type="text" *ngIf="!headless" class="ngx-datepicker-input" [(ngModel)]="displayValue" readonly [placeholder]="placeholder"
-    [ngClass]="addClass" [ngStyle]="addStyle" [id]="fieldId" [disabled]="disabled" (click)="toggle()" />
+<div class="ngx-date-range-picker-container">
+  <input *ngIf="!headless"
+         #inputElement
+         type="text"
+         class="ngx-date-range-picker-input"
+         [(ngModel)]="displayValue"
+         readonly
+         [placeholder]="currentOptions.placeholder"
+         [ngClass]="currentOptions.addClass"
+         [ngStyle]="currentOptions.addStyle"
+         [id]="fieldId"
+         [disabled]="disabled"
+         (click)="toggle()" />
   <ng-content></ng-content>
-  <div class="ngx-datepicker-calendar-container ngx-datepicker-position-{{position}}" *ngIf="isOpened">
+  <div class="ngx-date-range-picker-calendar-container ngx-date-range-picker-position-{{position}}"
+       *ngIf="isOpened"
+       #container>
     <div class="topbar-container">
       <svg width="7px" height="10px" viewBox="0 0 7 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         (click)="prevMonth()">
@@ -32,7 +44,10 @@
                 <g id="Calendar" transform="translate(825.000000, 0.000000)">
                   <g transform="translate(0.000000, 72.000000)" id="Top-Bar-Nav">
                     <g transform="translate(18.000000, 15.000000)">
-                      <polygon id="Forward" transform="translate(262.007500, 9.012500) scale(-1, 1) translate(-262.007500, -9.012500) " points="265.015 4 259 9.013 265.015 14.025"></polygon>
+                      <polygon id="Forward"
+                               transform="translate(262.007500, 9.012500) scale(-1, 1) translate(-262.007500, -9.012500) "
+                               points="265.015 4 259 9.013 265.015 14.025">
+                      </polygon>
                     </g>
                   </g>
                 </g>
@@ -47,15 +62,26 @@
         <span class="day-name-unit" *ngFor="let name of dayNames">{{ name }}</span>
       </div>
       <div class="main-calendar-days">
-        <span class="day-unit" *ngFor="let day of days; let i = index;" [ngClass]="{ 'is-prev-month': !day.inThisMonth, 'is-today': day.isToday, 'is-selected': day.isSelected, 'is-disabled': !day.isSelectable }"
-          (click)="day.isSelectable && setDate(i)">
-          {{ day.day }}
+        <span class="day-unit"
+              *ngFor="let day of days; let i = index;"
+              (click)="day.isSelectable && setDate(i)"
+        >
+          <span class="day-background-upper"
+                [ngClass]="this.getDayClasses(day)">{{ day.day }}</span>
+          <span class="day-background-lower"
+                [ngClass]="this.getDayClasses(day)"></span>
         </span>
       </div>
     </div>
     <div class="main-calendar-container" *ngIf="view === 'years'">
       <div class="main-calendar-years" slimScroll [options]="scrollOptions">
-        <span class="year-unit" *ngFor="let year of years; let i = index;" [ngClass]="{ 'is-selected': year.isThisYear }" (click)="setYear(i)">{{ year.year }}</span>
+        <span *ngFor="let year of years; let i = index;"
+              class="year-unit"
+              [ngClass]="{ 'is-selected': year.isThisYear }"
+              (click)="setYear(i)"
+        >
+          {{ year.year }}
+        </span>
       </div>
     </div>
   </div>

@@ -1,2 +1,2 @@
-export * from './src/ng-datepicker/module/ng-datepicker.module';
-export * from './src/ng-datepicker/component/ng-datepicker.component';
+export * from './src/ngx-date-range-picker/module/ngx-date-range-picker.module';
+export * from './src/ngx-date-range-picker/component/ngx-date-range-picker.component';

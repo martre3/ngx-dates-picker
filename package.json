@@ -1,22 +1,23 @@
 {
-  "name": "ng2-datepicker",
-  "version": "3.1.1",
-  "main": "./dist/bundles/ng2-datepicker.umd.js",
-  "module": "./dist/ng2-datepicker.es5.js",
-  "es2015": "./dist/ng2-datepicker.js",
-  "typings": "./dist/ng2-datepicker.d.ts",
+  "name": "ngx-date-range-picker",
+  "version": "1.0.0",
+  "main": "./dist/bundles/ngx-date-range-picker.umd.js",
+  "module": "./dist/ngx-date-range-picker.es5.js",
+  "es2015": "./dist/ngx-date-range-picker.js",
+  "typings": "./dist/ngx-date-range-picker.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bleenco/ng2-datepicker.git"
+    "url": "git+https://github.com/martre3/ngx-date-range-picker.git"
   },
   "authors": [
+    "Martynas Treinys <martynas7928@gmail.com",
     "Jan Kuri <jan@bleenco.com>"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bleenco/ng2-datepicker/issues"
+    "url": "https://github.com/martre3/ngx-date-range-picker/issues"
   },
-  "homepage": "https://github.com/bleenco/ng2-datepicker#readme",
+  "homepage": "https://github.com/martre3/ngx-date-range-picker#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

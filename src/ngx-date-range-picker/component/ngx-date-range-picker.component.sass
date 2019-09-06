@@ -1,5 +1,6 @@
 $white: #ffffff
 $background: $white
+$range-background: #99ddff
 $border: #DFE3E9
 $shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08)
 $radius: 4px
@@ -7,33 +8,33 @@ $text: #3D495C
 $text-secondary: #A4A9B1
 $color: #1A91EB
 
-.ngx-datepicker-position-bottom-left
+.ngx-date-range-picker-position-bottom-left
   top: 40px
   right: 0
 
-.ngx-datepicker-position-bottom-right
+.ngx-date-range-picker-position-bottom-right
   top: 40px
   left: 0
 
-.ngx-datepicker-position-top-left
+.ngx-date-range-picker-position-top-left
   bottom: 40px
   right: 0
 
-.ngx-datepicker-position-top-right
+.ngx-date-range-picker-position-top-right
   bottom: 40px
   left: 0
 
-.ngx-datepicker-container
+.ngx-date-range-picker-container
   position: relative
 
-  .ngx-datepicker-input
+  .ngx-date-range-picker-input
     padding: 5px 10px
     font-size: 14px
     width: 200px
     outline: none
     border: 1px solid $border
 
-  .ngx-datepicker-calendar-container
+  .ngx-date-range-picker-calendar-container
     position: absolute
     width: 300px
     background: $background
@@ -89,6 +90,7 @@ $color: #1A91EB
         overflow: hidden
 
         .day-unit, .year-unit
+          position: relative
           width: calc(100% / 7)
           height: 40px
           display: inline-flex
@@ -97,27 +99,55 @@ $color: #1A91EB
           justify-content: center
           cursor: pointer
           user-select: none
-          border-radius: 50%
-          color: $text
 
-          &.is-prev-month
-            color: $text-secondary
+          & .day-background-upper
+            display: inline-flex
+            position: absolute
+            z-index: 1
+            width: 100%
+            height: 100%
+            border-radius: 50%
+            align-items: center
+            justify-content: center
 
-          &:hover, &.is-today
-            background: $text-secondary
-            color: $white
+            &.is-in-range
+              color: $white
 
-          &.is-selected
-            background: $color
-            color: $white
-          
-          &.is-disabled
-            cursor: not-allowed
-            color: $text-secondary
+            &.is-today
+              background: $text-secondary
 
-            &:hover
-              background: transparent
+            &.is-selected, &:hover
+              background: $color
+              color: $white
 
+            &.is-prev-month
+              color: $text-secondary
+
+            &.is-disabled
+              cursor: not-allowed
+              color: $text-secondary
+
+          & .day-background-lower
+            display: inline-flex
+            position: absolute
+            z-index: 0
+            width: 100%
+            height: 100%
+            align-items: center
+            justify-content: center
+            border-top: 4px solid white
+            border-bottom: 4px solid white
+
+            &.is-in-range
+              background: $range-background
+
+            &.range-start
+              border-bottom-left-radius: 50%
+              border-top-left-radius: 50%
+
+            &.range-end
+              border-bottom-right-radius: 50%
+              border-top-right-radius: 50%
 
       .main-calendar-years
         height: 210px
@@ -127,3 +157,7 @@ $color: #1A91EB
         .year-unit
           width: calc(100% / 3)
           border-radius: 10px
+
+          &.is-selected, &:hover
+            background: $color
+            color: $white
