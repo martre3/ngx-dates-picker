@@ -1,11 +1,11 @@
 # ng2-datepicker
 
-Angular 2+ Simple and minimal datepicker component
+Angular 2+ datepicker component with no JQuery dependency, forked from [bleenco/ng2-datepicker](https://github.com/bleenco/ng2-datepicker).
 
 [![AbstruseCI](https://ci.bleenco.io/badge/6)](https://ci.bleenco.io/repo/6)
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/1796022/30781709-624eddc2-a124-11e7-88b7-537af535c23b.png" width="300">
+  <img src="https://user-images.githubusercontent.com/32035250/64492992-50396c00-d283-11e9-966c-1440230ea3cb.png" width="300">
 </p>
 
 <p align="center">
@@ -17,20 +17,20 @@ Angular 2+ Simple and minimal datepicker component
 1. Install package from `npm`.
 
 ```sh
-npm install ng2-datepicker --save
+npm install ngx-date-range-picker --save
 ```
 
-2. Include NgDatepickerModule into your application.
+2. Include NgxDateRangePickerModule into your application.
 
 ```ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgDatepickerModule } from 'ng2-datepicker';
+import { NgxDateRangePickerModule } from 'ngx-date-range-picker';
 
 @NgModule({
   imports: [
     BrowserModule,
-    NgDatepickerModule
+    NgxDateRangePickerModule
   ],
   declarations: [ AppComponent ],
   exports: [ AppComponent ]
@@ -40,22 +40,31 @@ export class AppModule {}
 
 ## Example
 ```html
-  <ng-datepicker [(ngModel)]="date" />
+  <ngx-date-range-picker [(ngModel)]="date" />
 ```
 
-## Additional attributes
+## NgModel
+Accepted types are date `string`, javascript `Date` object and `DateRange` object (`{start: Date, end: Date}`).
+If `selectRange` is `true` javascript `Date` object will be returned for selected date, else - `DateRange` object, 
+where `range.start` will be equal to `range.end` if one day is selected. 
+
+## Attributes
 |Name|Type|Default|Description|
 | --- | --- | --- | --- |
 |`headless`|boolean|`false`|Disable datepicker's input|
 |`isOpened`|boolean|`false`|Show or hide datepicker|
 |`position`|string|`bottom-right`|Dropdown position (`bottom-left`, `bottom-right`, `top-left`, `top-right`)|
+|`options`|object|see [options](#options)||
 
-## Options
+## <a name="options"></a>Options
 ```ts
 import { DatepickerOptions } from 'ng2-datepicker';
 import * as frLocale from 'date-fns/locale/fr';
 
-options: DatepickerOptions = {
+defaultOptions: DatepickerOptions = {
+  closeOnClickOutside: true;
+  closeOnSelection: true;
+  selectRange: false,
   minYear: 1970,
   maxYear: 2030,
   displayFormat: 'MMM D[,] YYYY',

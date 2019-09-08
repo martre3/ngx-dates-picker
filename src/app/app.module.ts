@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgDatepickerModule } from '../ng-datepicker/module/ng-datepicker.module';
+import { NgxDateRangePickerModule } from '../ngx-date-range-picker/module/ngx-date-range-picker.module';
 
 import { AppComponent } from './app.component';
 
@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    NgDatepickerModule
+    NgxDateRangePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
