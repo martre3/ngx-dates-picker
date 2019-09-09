@@ -27,7 +27,7 @@ import {
   getDay,
   subDays,
   setDay,
-  isAfter, isBefore, addDays,
+  isAfter, isBefore, addDays, setMonth,
 } from 'date-fns';
 import { ISlimScrollOptions } from 'ngx-slimscroll';
 import { isSameDate, createDateRange } from '../helpers';
@@ -134,8 +134,9 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
   displayValue: string;
   viewingDate: Date;
   barTitle: string;
-  view: string;
+  view: 'days' | 'months' | 'years';
   years: { year: number; isThisYear: boolean }[];
+  months: { month: number; name: string; isSelected: boolean }[];
   dayNames: string[];
   scrollOptions: ISlimScrollOptions;
   days: Day[];
@@ -184,6 +185,7 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
 
     this.initDayNames();
     this.initYears();
+    this.initMonths();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -192,6 +194,7 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
       this.initDayNames();
       this.init();
       this.initYears();
+      this.initMonths();
     }
   }
 
@@ -247,6 +250,13 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
     this.viewingDate = setYear(this.viewingDate, this.years[i].year);
     this.init();
     this.initYears();
+    this.view = 'months';
+  }
+
+  setMonth(i: number): void {
+    this.viewingDate = setMonth(this.viewingDate, this.months[i].month);
+    this.init();
+    this.initMonths();
     this.view = 'days';
   }
 
@@ -296,6 +306,13 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
     this.years = Array.from(new Array(range), (x, i) => i + this.currentOptions.minYear).map((year) => {
       return { year: year, isThisYear: year === getYear(this.viewingDate) };
     });
+  }
+
+  initMonths(): void {
+    this.months = Array.from(new Array(12), (x, i) => setMonth(new Date(), i + 1))
+      .map((date) => {
+        return { month: date.getMonth(), name: format(date, 'MMM'), isSelected: date.getMonth() === getMonth(this.viewingDate) };
+      });
   }
 
   initDayNames(): void {
@@ -374,13 +391,16 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
 
     if (e.target === this.inputElement.nativeElement ||
       this.inputElement.nativeElement.contains(<any>e.target) ||
-      ((<any>e.target).parentElement && (<any>e.target).parentElement.classList.contains('day-unit'))) {
+      ((<any>e.target).parentElement && (<any>e.target).parentElement.classList.contains('day-unit'))
+    ) {
       return;
     }
 
     if (this.calendarContainerElement.nativeElement !== e.target &&
       !this.calendarContainerElement.nativeElement.contains(<any>e.target) &&
-      !(<any>e.target).classList.contains('year-unit')) {
+      !(<any>e.target).classList.contains('year-unit') &&
+      !(<any>e.target).classList.contains('month-unit')
+    ) {
       this.close();
     }
   }

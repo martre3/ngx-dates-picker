@@ -92,7 +92,7 @@ $color: #0186FF
   display: inline-block
   overflow: hidden
 
-.day-unit, .year-unit
+.day-unit, .year-unit, .month-unit
   position: relative
   width: calc(100% / 7)
   font-size: 14px
@@ -161,8 +161,14 @@ $color: #0186FF
   display: block
   padding: 0
 
+.month-unit
+  width: calc(100% / 4)
+  height: 54px
+
 .year-unit
   width: calc(100% / 3)
+
+.year-unit, .month-unit
   border-radius: 10px
 
   &.is-selected
@@ -172,3 +178,6 @@ $color: #0186FF
   &:hover
     background: $hover-background
     color: black
+
+.main-calendar-months
+  padding-bottom: 10px
