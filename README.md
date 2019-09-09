@@ -5,11 +5,11 @@ Angular 2+ datepicker component with no JQuery dependency, forked from [bleenco/
 [![AbstruseCI](https://ci.bleenco.io/badge/6)](https://ci.bleenco.io/repo/6)
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/32035250/64492992-50396c00-d283-11e9-966c-1440230ea3cb.png" width="300">
+  <img src="https://user-images.githubusercontent.com/32035250/64512878-033faf00-d2f0-11e9-9fcb-5cbef6112cde.png" width="300">
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/1796022/30781711-666e5e5a-a124-11e7-9077-59e8eb7d6b03.png" width="300">
+  <img src="https://user-images.githubusercontent.com/32035250/64512970-384c0180-d2f0-11e9-9bc8-53a8cb77c615.png" width="300">
 </p>
 
 ## Installation

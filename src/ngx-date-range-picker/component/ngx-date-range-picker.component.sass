@@ -1,12 +1,13 @@
 $white: #ffffff
 $background: $white
-$range-background: #99ddff
+$range-background: rgba(1,134,255,0.1)
 $border: #DFE3E9
 $shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08)
 $radius: 4px
 $text: #3D495C
-$text-secondary: #A4A9B1
-$color: #1A91EB
+$text-secondary: #CBCBCB
+$hover-background: #F0F0F0
+$color: #0186FF
 
 .ngx-date-range-picker-position-bottom-left
   top: 40px
@@ -92,6 +93,8 @@ $color: #1A91EB
         .day-unit, .year-unit
           position: relative
           width: calc(100% / 7)
+          font-size: 14px
+          font-weight: 400
           height: 40px
           display: inline-flex
           float: left
@@ -110,15 +113,13 @@ $color: #1A91EB
             align-items: center
             justify-content: center
 
-            &.is-in-range
-              color: $white
-
-            &.is-today
-              background: $text-secondary
-
-            &.is-selected, &:hover
+            &.is-selected
               background: $color
               color: $white
+
+            &:hover
+              background: $hover-background
+              color: black
 
             &.is-prev-month
               color: $text-secondary
@@ -135,8 +136,8 @@ $color: #1A91EB
             height: 100%
             align-items: center
             justify-content: center
-            border-top: 4px solid white
-            border-bottom: 4px solid white
+            border-top: 2px solid white
+            border-bottom: 2px solid white
 
             &.is-in-range
               background: $range-background
@@ -158,6 +159,10 @@ $color: #1A91EB
           width: calc(100% / 3)
           border-radius: 10px
 
-          &.is-selected, &:hover
+          &.is-selected
             background: $color
             color: $white
+
+          &:hover
+            background: $hover-background
+            color: black
