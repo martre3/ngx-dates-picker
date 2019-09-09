@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng2-datepicker": {
+    "ngx-date-range-picker": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -48,18 +48,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng2-datepicker:build"
+            "browserTarget": "ngx-date-range-picker:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng2-datepicker:build:production"
+              "browserTarget": "ngx-date-range-picker:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng2-datepicker:build"
+            "browserTarget": "ngx-date-range-picker:build"
           }
         },
         "test": {
@@ -93,7 +93,7 @@
         }
       }
     },
-    "ng2-datepicker-e2e": {
+    "ngx-date-range-picker-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -102,7 +102,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "ng2-datepicker:serve"
+            "devServerTarget": "ngx-date-range-picker:serve"
           }
         },
         "lint": {
@@ -119,7 +119,7 @@
       }
     }
   },
-  "defaultProject": "ng2-datepicker",
+  "defaultProject": "ngx-date-range-picker",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

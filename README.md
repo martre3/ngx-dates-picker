@@ -1,4 +1,4 @@
-# ng2-datepicker
+# ngx-date-range-picker
 
 Angular 2+ datepicker component with no JQuery dependency, forked from [bleenco/ng2-datepicker](https://github.com/bleenco/ng2-datepicker).
 
@@ -54,6 +54,8 @@ where `range.start` will be equal to `range.end` if one day is selected.
 |`headless`|boolean|`false`|Disable datepicker's input|
 |`isOpened`|boolean|`false`|Show or hide datepicker|
 |`position`|string|`bottom-right`|Dropdown position (`bottom-left`, `bottom-right`, `top-left`, `top-right`)|
+|`previousMonthButtonTemplate`|`TemplateRef`|`undefined`|Overrides left arrow used to go one month back.|
+|`nextMonthButtonTemplate`|`TemplateRef`|`undefined`|Overrides right arrow used to go to next month.| 
 |`options`|object|see [options](#options)||
 
 ## <a name="options"></a>Options
