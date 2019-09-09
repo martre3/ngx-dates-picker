@@ -1,4 +1,15 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ElementRef, HostListener, forwardRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ElementRef,
+  HostListener,
+  forwardRef,
+  ViewChild,
+  TemplateRef
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import {
   startOfMonth,
@@ -90,6 +101,9 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
    * Datepicker dropdown position
    */
   @Input() position = 'bottom-right';
+
+  @Input() previousMonthButtonTemplate: TemplateRef<any>;
+  @Input() nextMonthButtonTemplate: TemplateRef<any>;
 
   currentOptions: DatepickerOptions = {
     closeOnClickOutside: true,
