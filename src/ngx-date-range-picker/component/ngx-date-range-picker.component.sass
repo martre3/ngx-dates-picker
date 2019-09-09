@@ -31,144 +31,144 @@ $color: #0186FF
 .ngx-date-range-picker-container
   position: relative
 
-  .ngx-date-range-picker-input
-    padding: 5px 10px
-    font-size: 14px
-    width: 200px
-    outline: none
-    border: 1px solid $border
+.ngx-date-range-picker-input
+  padding: 5px 10px
+  font-size: 14px
+  width: 200px
+  outline: none
+  border: 1px solid $border
 
-  .ngx-date-range-picker-calendar-container
-    position: absolute
-    width: 300px
-    background: $background
-    box-shadow: $shadow
-    border: 1px solid $border
-    border-radius: $radius
+.ngx-date-range-picker-calendar-container
+  position: absolute
+  width: 300px
+  background: $background
+  box-shadow: $shadow
+  border: 1px solid $border
+  border-radius: $radius
 
-    .topbar-container
-      width: 100%
-      height: 50px
-      padding: 0 15px
-      border-bottom: 1px solid $border
-      display: flex
-      justify-content: space-between
-      align-items: center
-      user-select: none
+.topbar-container
+  width: 100%
+  height: 50px
+  padding: 0 15px
+  border-bottom: 1px solid $border
+  display: flex
+  justify-content: space-between
+  align-items: center
+  user-select: none
 
-      svg
-        cursor: pointer
+  svg
+    cursor: pointer
 
-        g
-          fill: #CED0DA
+    g
+      fill: #CED0DA
 
-      .topbar-title
-        color: $text
-        font-size: 14px
-        font-weight: 600
-        cursor: pointer
+.topbar-title
+  color: $text
+  font-size: 14px
+  font-weight: 600
+  cursor: pointer
 
-    .main-calendar-container
-      width: 100%
-      height: 100%
-      padding: 15px 10px 0
-      font-size: 12px
-      font-weight: 500
+.main-calendar-container
+  width: 100%
+  height: 100%
+  padding: 15px 10px 0
+  font-size: 12px
+  font-weight: 500
 
-      .main-calendar-day-names
-        color: $text-secondary
-        width: 100%
-        display: flex
-        align-items: center
+.main-calendar-day-names
+  color: $text-secondary
+  width: 100%
+  display: flex
+  align-items: center
 
-        .day-name-unit
-          width: calc(100% / 7)
-          text-transform: uppercase
-          text-align: center
+.day-name-unit
+  width: calc(100% / 7)
+  text-transform: uppercase
+  text-align: center
 
-      .main-calendar-days, .main-calendar-years
-        padding: 15px 0 0 0
-        width: 100%
-        display: inline-block
-        overflow: hidden
+.main-calendar-days, .main-calendar-years
+  padding: 15px 0 0 0
+  width: 100%
+  display: inline-block
+  overflow: hidden
 
-        .day-unit, .year-unit
-          position: relative
-          width: calc(100% / 7)
-          font-size: 14px
-          font-weight: 400
-          height: 40px
-          display: inline-flex
-          float: left
-          align-items: center
-          justify-content: center
-          cursor: pointer
-          user-select: none
+.day-unit, .year-unit
+  position: relative
+  width: calc(100% / 7)
+  font-size: 14px
+  font-weight: 400
+  height: 40px
+  display: inline-flex
+  float: left
+  align-items: center
+  justify-content: center
+  cursor: pointer
+  user-select: none
 
-          & .day-background-upper
-            display: inline-flex
-            position: absolute
-            z-index: 1
-            width: 100%
-            height: 100%
-            border-radius: 50%
-            align-items: center
-            justify-content: center
+.day-background-upper
+  display: inline-flex
+  position: absolute
+  z-index: 1
+  width: 100%
+  height: 100%
+  border-radius: 50%
+  align-items: center
+  justify-content: center
 
-            &.is-selected
-              background: $color
-              color: $white
+  &.is-selected
+    background: $color
+    color: $white
 
-            &:not(.is-visible)
-              cursor: default
+  &:not(.is-visible)
+    cursor: default
 
-            &.is-visible
-              &:hover
-                background: $hover-background
-                color: black
+  &.is-visible
+    &:hover
+      background: $hover-background
+      color: black
 
-              &.is-prev-month
-                color: $text-secondary
+    &.is-prev-month
+      color: $text-secondary
 
-              &.is-disabled
-                cursor: not-allowed
-                color: $text-secondary
+    &.is-disabled
+      cursor: not-allowed
+      color: $text-secondary
 
-          & .day-background-lower
-            display: inline-flex
-            position: absolute
-            z-index: 0
-            width: 100%
-            height: 100%
-            align-items: center
-            justify-content: center
-            border-top: 2px solid white
-            border-bottom: 2px solid white
+.day-background-lower
+  display: inline-flex
+  position: absolute
+  z-index: 0
+  width: 100%
+  height: 100%
+  align-items: center
+  justify-content: center
+  border-top: 2px solid white
+  border-bottom: 2px solid white
 
-            &.is-in-range
-              background: $range-background
+  &.is-in-range
+    background: $range-background
 
-            &.range-start
-              border-bottom-left-radius: 50%
-              border-top-left-radius: 50%
+  &.range-start
+    border-bottom-left-radius: 50%
+    border-top-left-radius: 50%
 
-            &.range-end
-              border-bottom-right-radius: 50%
-              border-top-right-radius: 50%
+  &.range-end
+    border-bottom-right-radius: 50%
+    border-top-right-radius: 50%
 
-      .main-calendar-years
-        height: 210px
-        display: block
-        padding: 0
+.main-calendar-years
+  height: 210px
+  display: block
+  padding: 0
 
-        .year-unit
-          width: calc(100% / 3)
-          border-radius: 10px
+.year-unit
+  width: calc(100% / 3)
+  border-radius: 10px
 
-          &.is-selected
-            background: $color
-            color: $white
+  &.is-selected
+    background: $color
+    color: $white
 
-          &:hover
-            background: $hover-background
-            color: black
+  &:hover
+    background: $hover-background
+    color: black
