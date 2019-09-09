@@ -5,7 +5,10 @@ Angular 2+ datepicker component with no JQuery dependency, forked from [bleenco/
 [![AbstruseCI](https://ci.bleenco.io/badge/6)](https://ci.bleenco.io/repo/6)
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/32035250/64512878-033faf00-d2f0-11e9-9fcb-5cbef6112cde.png" width="300">
+  <img style="display: inline-block" src="https://user-images.githubusercontent.com/32035250/64512878-033faf00-d2f0-11e9-9fcb-5cbef6112cde.png" width="300">
+  <img style="display: inline-block" src="https://user-images.githubusercontent.com/32035250/64523368-d4800380-d304-11e9-8ddf-528216634d98.png" width="300">
+  <img style="display: inline-block" src="https://user-images.githubusercontent.com/32035250/64523552-38a2c780-d305-11e9-83ba-7833b2f51e4a.png" width="300">
+ 
 </p>
 
 <p align="center">
@@ -13,7 +16,6 @@ Angular 2+ datepicker component with no JQuery dependency, forked from [bleenco/
 </p>
 
 ## Installation
-
 1. Install package from `npm`.
 
 ```sh
