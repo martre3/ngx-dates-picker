@@ -55,7 +55,7 @@ where `range.start` will be equal to `range.end` if one day is selected.
 | --- | --- | --- | --- |
 |`headless`|boolean|`false`|Disable datepicker's input|
 |`isOpened`|boolean|`false`|Show or hide datepicker|
-|`position`|string|`bottom-right`|Dropdown position (`bottom-left`, `bottom-right`, `top-left`, `top-right`)|
+|`position`|string|`bottom-right`|Dropdown position (`bottom-left`, `bottom-right`, `top-left`, `top-right`, `static`)|
 |`previousMonthButtonTemplate`|`TemplateRef`|`undefined`|Overrides left arrow used to go one month back.|
 |`nextMonthButtonTemplate`|`TemplateRef`|`undefined`|Overrides right arrow used to go to next month.| 
 |`options`|object|see [options](#options)||
