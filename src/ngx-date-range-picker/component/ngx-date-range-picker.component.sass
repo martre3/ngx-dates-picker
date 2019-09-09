@@ -117,16 +117,20 @@ $color: #0186FF
               background: $color
               color: $white
 
-            &:hover
-              background: $hover-background
-              color: black
+            &:not(.is-visible)
+              cursor: default
 
-            &.is-prev-month
-              color: $text-secondary
+            &.is-visible
+              &:hover
+                background: $hover-background
+                color: black
 
-            &.is-disabled
-              cursor: not-allowed
-              color: $text-secondary
+              &.is-prev-month
+                color: $text-secondary
+
+              &.is-disabled
+                cursor: not-allowed
+                color: $text-secondary
 
           & .day-background-lower
             display: inline-flex

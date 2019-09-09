@@ -48,8 +48,12 @@
         <ng-template [ngTemplateOutlet]="nextMonthButtonTemplate || defaultNextMonthTemplate"></ng-template>
       </div>
       <ng-template #defaultNextMonthTemplate>
-        <svg width="7px" height="10px" viewBox="0 0 6 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          (click)="nextMonth()">
+        <svg width="7px"
+             height="10px"
+             viewBox="0 0 6 10"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
           <g id="Source-Sans---UI-Elements-Kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="White-Layout" transform="translate(-1182.000000, -1882.000000)" fill="#CED0DA">
               <g id="Dropdowns-&amp;-Selector" transform="translate(80.000000, 1361.000000)">
@@ -81,7 +85,7 @@
               (click)="day.isSelectable && setDate(i)"
         >
           <span class="day-background-upper"
-                [ngClass]="this.getDayClasses(day)">{{ day.day }}</span>
+                [ngClass]="this.getDayClasses(day)">{{ day.isVisible ? day.day : '' }}</span>
           <span class="day-background-lower"
                 [ngClass]="this.getDayClasses(day)"></span>
         </span>

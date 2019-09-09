@@ -67,6 +67,7 @@ defaultOptions: DatepickerOptions = {
   closeOnClickOutside: true;
   closeOnSelection: true;
   selectRange: false,
+  includeDays: 'previous-month'; // 'none', 'previous-month', 'next-month', 'all'. Should it render days outside current month.
   minYear: 1970,
   maxYear: 2030,
   displayFormat: 'MMM D[,] YYYY',
@@ -94,8 +95,8 @@ In case you want to initialize with an empty value, just assign null to the mode
 1. Clone this repository
 
 ```sh
-git clone https://github.com/jkuri/ng2-datepicker.git
-cd ng2-datepicker
+git clone https://github.com/martre3/ngx-date-range-picker.git
+cd ngx-date-range-picker
 ```
 
 2. Install packages
