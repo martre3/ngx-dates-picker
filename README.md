@@ -62,9 +62,6 @@ where `range.start` will be equal to `range.end` if one day is selected.
 
 ## <a name="options"></a>Options
 ```ts
-import { DatepickerOptions } from 'ng2-datepicker';
-import * as frLocale from 'date-fns/locale/fr';
-
 defaultOptions: DatepickerOptions = {
   closeOnClickOutside: true;
   closeOnSelection: true;
@@ -74,23 +71,34 @@ defaultOptions: DatepickerOptions = {
   maxYear: 2030,
   displayFormat: 'MMM D[,] YYYY',
   barTitleFormat: 'MMMM YYYY',
-  dayNamesFormat: 'dd',
+  dayNamesFormat: 'ddd',
+  rangeSeparator: '-' // Char that separates start and end dates in input field.
   firstCalendarDay: 0, // 0 - Sunday, 1 - Monday
-  locale: frLocale,
-  minDate: new Date(Date.now()), // Minimal selectable date
-  maxDate: new Date(Date.now()),  // Maximal selectable date
-  barTitleIfEmpty: 'Click to select a date',
-  placeholder: 'Click to select a date', // HTML input placeholder attribute (default: '')
-  addClass: 'form-control', // Optional, value to pass on to [ngClass] on the input field
+  locale: {},
+  minDate: undefined, // Minimal selectable date
+  maxDate: undefined,  // Maximal selectable date
+  barTitleIfEmpty: '',
+  placeholder: '', // HTML input placeholder attribute (default: '')
+  addClass: {}, // Optional, value to pass on to [ngClass] on the input field
   addStyle: {}, // Optional, value to pass to [ngStyle] on the input field
-  fieldId: 'my-date-picker', // ID to assign to the input field. Defaults to datepicker-<counter>
-  useEmptyBarTitle: false, // Defaults to true. If set to false then barTitleIfEmpty will be disregarded and a date will always be shown 
+  fieldId: 'datepicker-0', // ID to assign to the input field. Defaults to datepicker-<counter>
+  useEmptyBarTitle: true, // Defaults to true. If set to false then barTitleIfEmpty will be disregarded and a date will always be shown 
 };
 ```
 
 For available `format` options check out [here](https://date-fns.org/docs/format).
 
 In case you want to initialize with an empty value, just assign null to the model attribute you're storing the date and you can customize the message in the bar with the property `barTitleIfEmpty`.
+
+## Locale
+
+To change the locale import it from `date-fns`. For example `import * as frLocale from 'date-fns/locale/fr'` and pass it to options `options={locale: frLocale}`. 
+
+## To Do
+1. Add month selection. Instead of navigating with arrows, the user should be able to change a month with two clicks.
+2. Fix packages vulnerabilities.
+3. Write tests (not a single test has been written yet).
+4. Add ability to add custom class to each calendar component.
 
 ## Run Included Demo
 
