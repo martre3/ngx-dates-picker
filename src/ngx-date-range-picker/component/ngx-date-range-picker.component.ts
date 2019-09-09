@@ -27,7 +27,7 @@ import {
   getDay,
   subDays,
   setDay,
-  isAfter, isBefore,
+  isAfter, isBefore, addDays,
 } from 'date-fns';
 import { ISlimScrollOptions } from 'ngx-slimscroll';
 import { isSameDate, createDateRange } from '../helpers';
@@ -38,6 +38,7 @@ export type AddClass = string | string[] | { [k: string]: boolean } | null;
 export interface DatepickerOptions {
   closeOnClickOutside?: boolean;
   closeOnSelection?: boolean;
+  includeDays?: 'none' | 'previous-month' | 'next-month' | 'all';
   minYear?: number; // default: current year - 30
   maxYear?: number; // default: current year + 30
   displayFormat?: string; // default: 'MMM D[,] YYYY'
@@ -108,6 +109,7 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
   currentOptions: DatepickerOptions = {
     closeOnClickOutside: true,
     closeOnSelection: true,
+    includeDays: 'previous-month',
     minYear: getYear(new Date()) - 30,
     maxYear: getYear(new Date()) + 30,
     displayFormat: 'MMM D[,] YYYY',
@@ -253,17 +255,29 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
   }
 
   init(): void {
+    if (!this.viewingDate) {
+      return;
+    }
+
     const start = startOfMonth(this.viewingDate);
     const end = endOfMonth(this.viewingDate);
 
-    this.days = eachDay(start, end).map(this.formatDay);
+    this.days = eachDay(start, end).map((date) => this.formatDay(date));
 
-    const tmp = getDay(start) - this.currentOptions.firstCalendarDay;
-    const prevDays = tmp < 0 ? 7 - this.currentOptions.firstCalendarDay : tmp;
+    const firstMonthDay = getDay(start) - this.currentOptions.firstCalendarDay;
+    const prevDays = firstMonthDay < 0 ? 7 - this.currentOptions.firstCalendarDay : firstMonthDay;
+    const nextDays = (this.currentOptions.firstCalendarDay === 1 ? 7 : 6) - getDay(end);
+
+    const showPrevMonthDays = this.currentOptions.includeDays === 'all' || this.currentOptions.includeDays === 'previous-month';
+    const showNextMonthDays = this.currentOptions.includeDays === 'all' || this.currentOptions.includeDays === 'next-month';
 
     for (let i = 1; i <= prevDays; i++) {
-      this.days.unshift(this.formatDay(subDays(start, i)));
+      this.days.unshift(this.formatDay(subDays(start, i), showPrevMonthDays));
     }
+
+    new Array(nextDays).fill(undefined)
+      .forEach((_, i) => this.days.push(this.formatDay(addDays(end, i + 1), showNextMonthDays)));
+
 
     this.displayValue = this.formatDisplay();
 
@@ -372,19 +386,20 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
   }
 
 
-  formatDay = (date: Date): Day => (
+  formatDay = (date: Date, isVisible: boolean = true): Day => (
     {
       date: date,
       day: getDate(date),
       month: getMonth(date),
       year: getYear(date),
       inThisMonth: isSameMonth(date, this.viewingDate),
-      isToday: isToday(date),
-      isSelected: this.isDateSelected(date),
-      isInRange: this.isInRange(date),
-      isSelectable: this.isDateSelectable(date),
-      isStart: this.isRangeBoundary(date, 'start'),
-      isEnd: this.isRangeBoundary(date, 'end'),
+      isToday: isVisible && isToday(date),
+      isSelected: isVisible && this.isDateSelected(date),
+      isInRange: isVisible && this.isInRange(date),
+      isSelectable: isVisible && this.isDateSelectable(date),
+      isStart: isVisible && this.isRangeBoundary(date, 'start'),
+      isEnd: isVisible && this.isRangeBoundary(date, 'end'),
+      isVisible,
     }
   )
 
@@ -396,7 +411,8 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
       'is-in-range': day.isInRange,
       'is-disabled': !day.isSelectable,
       'range-start': day.isStart,
-      'range-end': day.isEnd
+      'range-end': day.isEnd,
+      'is-visible': day.isVisible,
     };
   }
 

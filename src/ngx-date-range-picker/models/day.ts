@@ -10,4 +10,5 @@ export interface Day {
   isSelectable: boolean;
   isStart: boolean;
   isEnd: boolean;
+  isVisible: boolean;
 }
