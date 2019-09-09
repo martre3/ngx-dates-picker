@@ -64,6 +64,8 @@ export interface DatepickerOptions {
   useEmptyBarTitle?: boolean;
 }
 
+export type PickerPosition = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right' | 'static';
+
 // Counter for calculating the auto-incrementing field ID
 let counter = 0;
 
@@ -102,7 +104,7 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
   /**
    * Datepicker dropdown position
    */
-  @Input() position = 'bottom-right';
+  @Input() position: PickerPosition = 'bottom-right';
 
   @Input() previousMonthButtonTemplate: TemplateRef<any>;
   @Input() nextMonthButtonTemplate: TemplateRef<any>;
@@ -141,7 +143,6 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
   disabled: boolean;
 
   private _range: DateRange;
-  private positions = ['bottom-left', 'bottom-right', 'top-left', 'top-right'];
 
   private onTouchedCallback: () => void = () => { };
   private onChangeCallback: (_: any) => void = () => { };
@@ -183,13 +184,6 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
 
     this.initDayNames();
     this.initYears();
-
-    // Check if 'position' property is correct
-    if (this.positions.indexOf(this.position) === -1) {
-      throw new TypeError(
-        `ngx-date-range-picker: invalid position property value '${this.position}' (expected: ${this.positions.join(', ')})`
-      );
-    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
