@@ -39,6 +39,7 @@ export interface DatepickerOptions {
   closeOnClickOutside?: boolean;
   closeOnSelection?: boolean;
   includeDays?: 'none' | 'previous-month' | 'next-month' | 'all';
+  includeNextMonthsFirstFullWeek?: boolean;
   minYear?: number; // default: current year - 30
   maxYear?: number; // default: current year + 30
   displayFormat?: string; // default: 'MMM D[,] YYYY'
@@ -110,6 +111,7 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
     closeOnClickOutside: true,
     closeOnSelection: true,
     includeDays: 'previous-month',
+    includeNextMonthsFirstFullWeek: false,
     minYear: getYear(new Date()) - 30,
     maxYear: getYear(new Date()) + 30,
     displayFormat: 'MMM D[,] YYYY',
@@ -158,7 +160,7 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
     return this._range;
   }
 
-  constructor(private elementRef: ElementRef) {
+  constructor() {
     this.scrollOptions = {
       barBackground: '#DFE3E9',
       gridBackground: '#FFFFFF',
@@ -266,10 +268,14 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
 
     const firstMonthDay = getDay(start) - this.currentOptions.firstCalendarDay;
     const prevDays = firstMonthDay < 0 ? 7 - this.currentOptions.firstCalendarDay : firstMonthDay;
-    const nextDays = (this.currentOptions.firstCalendarDay === 1 ? 7 : 6) - getDay(end);
+    let nextDays = (this.currentOptions.firstCalendarDay === 1 ? 7 : 6) - getDay(end);
 
     const showPrevMonthDays = this.currentOptions.includeDays === 'all' || this.currentOptions.includeDays === 'previous-month';
     const showNextMonthDays = this.currentOptions.includeDays === 'all' || this.currentOptions.includeDays === 'next-month';
+
+    if (showNextMonthDays && this.currentOptions.includeNextMonthsFirstFullWeek) {
+      nextDays += 7;
+    }
 
     for (let i = 1; i <= prevDays; i++) {
       this.days.unshift(this.formatDay(subDays(start, i), showPrevMonthDays));
