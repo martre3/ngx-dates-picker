@@ -95,10 +95,9 @@ In case you want to initialize with an empty value, just assign null to the mode
 To change the locale import it from `date-fns`. For example `import * as frLocale from 'date-fns/locale/fr'` and pass it to options `options={locale: frLocale}`. 
 
 ## To Do
-1. Add month selection. Instead of navigating with arrows, the user should be able to change a month with two clicks.
-2. Fix packages vulnerabilities.
-3. Write tests (not a single test has been written yet).
-4. Add ability to add custom class to each calendar component.
+1. Fix packages vulnerabilities.
+2. Write tests (not a single test has been written yet).
+3. Add ability to add custom class to each calendar component.
 
 ## Run Included Demo
 
