@@ -483,8 +483,6 @@ export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit
   }
 
   private getValueToEmit(range: DateRange): DateRange | Date {
-    console.log(range.start.getTime());
-
     if (!this.currentOptions.selectRange) {
       return new Date(range.start.getTime());
     }
