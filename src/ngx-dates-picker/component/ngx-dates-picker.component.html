@@ -1,8 +1,8 @@
-<div class="ngx-date-range-picker-container">
+<div class="ngx-dates-picker-container">
   <input *ngIf="!headless"
          #inputElement
          type="text"
-         class="ngx-date-range-picker-input"
+         class="ngx-dates-picker-input"
          [(ngModel)]="displayValue"
          readonly
          [placeholder]="currentOptions.placeholder"
@@ -12,7 +12,7 @@
          [disabled]="disabled"
          (click)="toggle()" />
   <ng-content></ng-content>
-  <div class="ngx-date-range-picker-calendar-container ngx-date-range-picker-position-{{position}}"
+  <div class="ngx-dates-picker-calendar-container ngx-dates-picker-position-{{position}}"
        *ngIf="isOpened"
        #container>
     <div class="topbar-container">

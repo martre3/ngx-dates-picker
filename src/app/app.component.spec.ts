@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-import { NgxDateRangePickerModule } from '../ngx-date-range-picker/module/ngx-date-range-picker.module';
+import { NgxDatesPickerModule } from '../ngx-dates-picker/module/ngx-dates-picker.module';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -10,7 +10,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        NgxDateRangePickerModule
+        NgxDatesPickerModule
       ]
     }).compileComponents();
   }));

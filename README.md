@@ -1,4 +1,4 @@
-# ngx-date-range-picker
+# ngx-dates-picker
 
 Angular 2+ datepicker component with no JQuery dependency, forked from [bleenco/ng2-datepicker](https://github.com/bleenco/ng2-datepicker).
 
@@ -19,20 +19,20 @@ Angular 2+ datepicker component with no JQuery dependency, forked from [bleenco/
 1. Install package from `npm`.
 
 ```sh
-npm install ngx-date-range-picker --save
+npm install ngx-dates-picker --save
 ```
 
-2. Include NgxDateRangePickerModule into your application.
+2. Include NgxDatesPickerModule into your application.
 
 ```ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxDateRangePickerModule } from 'ngx-date-range-picker';
+import { NgxDatesPickerModule } from 'ngx-dates-picker';
 
 @NgModule({
   imports: [
     BrowserModule,
-    NgxDateRangePickerModule
+    NgxDatesPickerModule
   ],
   declarations: [ AppComponent ],
   exports: [ AppComponent ]
@@ -42,7 +42,7 @@ export class AppModule {}
 
 ## Example
 ```html
-  <ngx-date-range-picker [(ngModel)]="date" />
+  <ngx-dates-picker [(ngModel)]="date" />
 ```
 
 ## NgModel
@@ -104,8 +104,8 @@ To change the locale import it from `date-fns`. For example `import * as frLocal
 1. Clone this repository
 
 ```sh
-git clone https://github.com/martre3/ngx-date-range-picker.git
-cd ngx-date-range-picker
+git clone https://github.com/martre3/ngx-dates-picker.git
+cd ngx-dates-picker
 ```
 
 2. Install packages
