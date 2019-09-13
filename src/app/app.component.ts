@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DatepickerOptions} from '../ngx-date-range-picker/component/ngx-date-range-picker.component';
+import {DatepickerOptions} from '../ngx-dates-picker/component/ngx-dates-picker.component';
 import * as enLocale from 'date-fns/locale/en';
 
 @Component({

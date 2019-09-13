@@ -1,13 +1,13 @@
 {
-  "name": "ngx-date-range-picker",
+  "name": "ngx-dates-picker",
   "version": "1.0.0",
-  "main": "./dist/bundles/ngx-date-range-picker.umd.js",
-  "module": "./dist/ngx-date-range-picker.es5.js",
-  "es2015": "./dist/ngx-date-range-picker.js",
-  "typings": "./dist/ngx-date-range-picker.d.ts",
+  "main": "./dist/bundles/ngx-dates-picker.umd.js",
+  "module": "./dist/ngx-dates-picker.es5.js",
+  "es2015": "./dist/ngx-dates-picker.js",
+  "typings": "./dist/ngx-dates-picker.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/martre3/ngx-date-range-picker.git"
+    "url": "git+https://github.com/martre3/ngx-dates-picker.git"
   },
   "authors": [
     "Martynas Treinys <martynas7928@gmail.com",
@@ -15,9 +15,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/martre3/ngx-date-range-picker/issues"
+    "url": "https://github.com/martre3/ngx-dates-picker/issues"
   },
-  "homepage": "https://github.com/martre3/ngx-date-range-picker#readme",
+  "homepage": "https://github.com/martre3/ngx-dates-picker#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

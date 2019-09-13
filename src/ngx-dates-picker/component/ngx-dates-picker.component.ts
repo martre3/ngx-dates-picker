@@ -78,14 +78,14 @@ const isNil = (value: Date | DatepickerOptions) => {
 };
 
 @Component({
-  selector: 'ngx-date-range-picker',
-  templateUrl: 'ngx-date-range-picker.component.html',
-  styleUrls: ['ngx-date-range-picker.component.sass'],
+  selector: 'ngx-dates-picker',
+  templateUrl: 'ngx-dates-picker.component.html',
+  styleUrls: ['ngx-dates-picker.component.sass'],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgxDateRangePickerComponent), multi: true }
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgxDatesPickerComponent), multi: true }
   ]
 })
-export class NgxDateRangePickerComponent implements ControlValueAccessor, OnInit, OnChanges {
+export class NgxDatesPickerComponent implements ControlValueAccessor, OnInit, OnChanges {
   @ViewChild('container') calendarContainerElement: ElementRef;
   @ViewChild('inputElement') inputElement: ElementRef;
 

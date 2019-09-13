@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-date-range-picker": {
+    "ngx-dates-picker": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -48,18 +48,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-date-range-picker:build"
+            "browserTarget": "ngx-dates-picker:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-date-range-picker:build:production"
+              "browserTarget": "ngx-dates-picker:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-date-range-picker:build"
+            "browserTarget": "ngx-dates-picker:build"
           }
         },
         "test": {
@@ -93,7 +93,7 @@
         }
       }
     },
-    "ngx-date-range-picker-e2e": {
+    "ngx-dates-picker-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -102,7 +102,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "ngx-date-range-picker:serve"
+            "devServerTarget": "ngx-dates-picker:serve"
           }
         },
         "lint": {
@@ -119,7 +119,7 @@
       }
     }
   },
-  "defaultProject": "ngx-date-range-picker",
+  "defaultProject": "ngx-dates-picker",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
