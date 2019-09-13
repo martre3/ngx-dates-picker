@@ -9,6 +9,12 @@
     "type": "git",
     "url": "git+https://github.com/martre3/ngx-dates-picker.git"
   },
+  "keywords": [
+    "angular",
+    "noJQuery",
+    "datepicker",
+    "date-range-picker"
+  ],
   "authors": [
     "Martynas Treinys <martynas7928@gmail.com",
     "Jan Kuri <jan@bleenco.com>"
