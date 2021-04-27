@@ -1,6 +1,6 @@
 {
   "name": "ngx-dates-picker",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "main": "./dist/bundles/ngx-dates-picker.umd.js",
   "module": "./dist/ngx-dates-picker.es5.js",
   "es2015": "./dist/ngx-dates-picker.js",
