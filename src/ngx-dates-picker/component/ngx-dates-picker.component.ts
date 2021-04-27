@@ -17,7 +17,7 @@ import {
   addMonths,
   subMonths,
   setYear,
-  eachDay,
+  eachDayOfInterval,
   getDate,
   getMonth,
   getYear,
@@ -116,9 +116,9 @@ export class NgxDatesPickerComponent implements ControlValueAccessor, OnInit, On
     includeNextMonthsFirstFullWeek: false,
     minYear: 1970,
     maxYear: 2030,
-    displayFormat: 'MMM D[,] YYYY',
-    barTitleFormat: 'MMMM YYYY',
-    dayNamesFormat: 'ddd',
+    displayFormat: 'MMM dd, yyyy',
+    barTitleFormat: 'MMMM yyyy',
+    dayNamesFormat: 'EEE',
     rangeSeparator: '-',
     selectRange: false,
     firstCalendarDay: 0,
@@ -269,7 +269,7 @@ export class NgxDatesPickerComponent implements ControlValueAccessor, OnInit, On
     const start = startOfMonth(this.viewingDate);
     const end = endOfMonth(this.viewingDate);
 
-    this.days = eachDay(start, end).map((date) => this.formatDay(date));
+    this.days = eachDayOfInterval({ start, end }).map((date) => this.formatDay(date));
 
     const firstMonthDay = getDay(start) - this.currentOptions.firstCalendarDay;
     const prevDays = firstMonthDay < 0 ? 7 - this.currentOptions.firstCalendarDay : firstMonthDay;
